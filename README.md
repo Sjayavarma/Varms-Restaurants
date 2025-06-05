@@ -124,3 +124,21 @@ Edit
 ---
 
 Let me know if you’d like it tailored with your name (`Developed by Jayavarma`) or want me to genera
+
+UI INTERFACE
+
+1.LANDING PAGR :
+![image](https://github.com/user-attachments/assets/ace78320-b915-443b-b095-be103bceb086)
+2.ABOUT US 
+![image](https://github.com/user-attachments/assets/6f5f89ed-4d91-4c36-b395-67a0ef93c46b)
+3.MENU 
+![image](https://github.com/user-attachments/assets/451367d8-ea87-4dff-ba89-5b45ee4abdb5)
+4.ADMIN PAGE :
+![image](https://github.com/user-attachments/assets/c0031b1a-292d-4842-8fee-c65309d50960)
+5.razorpay payment gateway 
+![image](https://github.com/user-attachments/assets/4246298d-6c47-47d6-bc57-8d86f3a865ce)
+
+
+
+
+
