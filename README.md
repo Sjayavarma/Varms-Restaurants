@@ -114,7 +114,7 @@ Add screenshots of the homepage, payment page, and admin dashboard here.
 This project is licensed under the MIT License.
 
 🙌 Credits
-Developed by [Your Name]
+Developed by jaya varms S
 Student Project — Hotel & Restaurant Management System
 
 yaml
