@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .dashboard-container {
+            margin: 50px auto;
+            max-width: 800px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logout-btn {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1 class="text-center">Welcome, Admin</h1>
+        <div class="logout-btn">
+            <a href="admin_login.php" class="btn btn-danger">Logout</a>
+        </div>
+        <p>Manage your application content here.</p>
+        <ul>
+            <li><a href="/admin/manage_users.php">Manage Users</a></li>
+            <li><a href="/admin/settings.php">Settings</a></li>
+        </ul>
+    </div>
+</body>
+</html>

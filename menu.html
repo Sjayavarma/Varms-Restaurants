@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Restaurant Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">Restaurant<span>.</span></a>
+        <div class="menuToggle" onclick="toggleMenu()"></div>
+        <ul class="navigation">
+            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+            <li><a href="menu.html" onclick="toggleMenu()">Menu</a></li>
+            <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+            <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="title">
+            <h2 class="titleText">Our <span>M</span>enu</h2>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explore our variety of dishes to satisfy your taste buds.
+            </p>
+        </div>
+    
+        <div class="content">
+            <!-- Special Salads -->
+            <div class="box">
+                <div class="imgBx">
+                    <img src="img/menu1.jpg" alt="Special Salads">
+                </div>
+                <div class="text">
+                    <h3>Special Salads</h3>
+                    <p class="price">$10.99</p>
+                    <button class="btn btn-success add-to-cart-btn" data-dish-id="1" data-name="Special Salads" data-price="10.99">+</button>
+                </div>
+            </div>
+    
+            <!-- Special Soup -->
+            <div class="box">
+                <div class="imgBx">
+                    <img src="img/menu2.jpg" alt="Special Soup">
+                </div>
+                <div class="text">
+                    <h3>Special Soup</h3>
+                    <p class="price">$7.99</p>
+                    <button class="btn btn-success add-to-cart-btn" data-dish-id="2" data-name="Special Soup" data-price="7.99">+</button>
+                </div>
+            </div>
+    
+            <!-- Add More Menu Items as Needed -->
+            <div class="box">
+                <div class="imgBx">
+                    <img src="img/menu3.jpg" alt="Grilled Chicken">
+                </div>
+                <div class="text">
+                    <h3>Grilled Chicken</h3>
+                    <p class="price">$12.50</p>
+                    <button class="btn btn-success add-to-cart-btn" data-dish-id="3" data-name="Grilled Chicken" data-price="12.50">+</button>
+                </div>
+            </div>
+    
+            <div class="box">
+                <div class="imgBx">
+                    <img src="img/menu4.jpg" alt="Veggie Burger">
+                </div>
+                <div class="text">
+                    <h3>Veggie Burger</h3>
+                    <p class="price">$8.50</p>
+                    <button class="btn btn-success add-to-cart-btn" data-dish-id="4" data-name="Veggie Burger" data-price="8.50">+</button>
+                </div>
+            </div>
+    
+            <div class="box">
+                <div class="imgBx">
+                    <img src="img/menu5.jpg" alt="Pasta Primavera">
+                </div>
+                <div class="text">
+                    <h3>Pasta Primavera</h3>
+                    <p class="price">$11.00</p>
+                    <button class="btn btn-success add-to-cart-btn" data-dish-id="5" data-name="Pasta Primavera" data-price="11.00">+</button>
+                </div>
+            </div>
+    
+            <div class="box">
+                <div class="imgBx">
+                    <img src="img/menu6.jpg" alt="Cheesecake">
+                </div>
+                <div class="text">
+                    <h3>Cheesecake</h3>
+                    <p class="price">$6.50</p>
+                    <button class="btn btn-success add-to-cart-btn" data-dish-id="6" data-name="Cheesecake" data-price="6.50">+</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- View All Button -->
+        
+    </section>
+    
+
+    <!-- Cart Section -->
+    <section class="cart-section" id="cart">
+        <div class="container my-5">
+            <h2 class="titleText">Your <span>C</span>art</h2>
+            <div class="cart-items"></div>
+            <div class="cart-total my-3">
+                <h4>Total Amount: $<span id="total-amount">0.00</span></h4>
+            </div>
+            <div class="cart-actions">
+                <button id="pay-now" class="btn btn-primary">Pay Now</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="copyrightText">
+            <p>&copy; 2025 <a href="index.html"> VARMS Restaurant </a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        const cart = [];
+        const cartContainer = document.querySelector('.cart-items');
+        const totalAmount = document.querySelector('#total-amount');
+
+        // Update Cart Function
+        function updateCart() {
+            cartContainer.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <p>${item.name} x${item.quantity}</p>
+                    <p>$${(item.price * item.quantity).toFixed(2)}</p>
+                `;
+                cartContainer.appendChild(cartItem);
+            });
+            totalAmount.textContent = total.toFixed(2);
+        }
+
+        // Add to Cart functionality
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                
+                // Add the item to the cart
+                const existingItem = cart.find(item => item.name === name);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ name, price, quantity: 1 });
+                }
+                updateCart();
+            });
+        });
+
+        // Razorpay Integration for Payment
+        document.getElementById('pay-now').addEventListener('click', async () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty.');
+                return;
+            }
+
+            try {
+                // Create Razorpay Order
+                const response = await fetch('razorpay/create_order.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ cart }),
+                });
+                const orderData = await response.json();
+
+                if (!orderData.success) {
+                    alert('Failed to initiate payment. Please try again.');
+                    return;
+                }
+
+                // Razorpay Options
+                const options = {
+                    key: 'rzp_test_uWgODGtQY2qilH', // Replace with your Razorpay key
+                    amount: orderData.amount,
+                    currency: 'INR',
+                    name: 'Restaurant',
+                    description: 'Order Payment',
+                    order_id: orderData.orderId,
+                    handler: async (response) => {
+                        // Verify Payment
+                        const verifyResponse = await fetch('razorpay/verify_payment.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(response),
+                        });
+                        const result = await verifyResponse.json();
+                        if (result.success) {
+                            window.location.href = 'razorpay/success.html';
+                        } else {
+                            window.location.href = 'razorpay/failure.html';
+                        }
+                    },
+                    theme: { color: '#3399cc' },
+                };
+
+                const razorpay = new Razorpay(options);
+                razorpay.open();
+            } catch (error) {
+                console.error('Payment error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
+</body>
+
+</html>

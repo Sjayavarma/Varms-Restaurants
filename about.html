@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About Us - Restaurant</title>
+	<link rel="stylesheet" href="style.css">
+	
+</head>
+<body>
+	<header>
+		<a href="#" class="logo">Food<span>.</span></a>
+		<div class="menuToggle" onclick="toggleMenu()"></div>
+		<ul class="navigation">
+			<li><a href="#home" onclick="toggleMenu()">Home</a></li>
+			<li><a href="#about" onclick="toggleMenu()">About</a></li>
+			<li><a href="#menu" onclick="toggleMenu()">Menu</a></li>
+			<li><a href="#expert" onclick="toggleMenu()">Expert</a></li>
+			<li><a href="#testimonials" onclick="toggleMenu()">Testimonials</a></li>
+			<li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+		</ul>
+	</header>
+
+	<section class="about" id="about">
+		<div class="container my-5">
+			<h2 class="titleText"><span>A</span>bout Us</h2>
+			<div class="row">
+				<div class="col-md-6">
+					<img src="assets/images/about-us.jpg" class="img-fluid rounded" alt="About Us">
+				</div>
+				<div class="col-md-6">
+					<p>
+						Welcome to Restaurant, your destination for delicious meals crafted with love and fresh ingredients. Since our inception, we've been committed to offering an extraordinary dining experience with flavors that linger long after your meal.
+					</p>
+					<p>
+						Our chefs combine innovation with traditional recipes to create dishes that excite your taste buds. From starters to desserts, each item on our menu is thoughtfully curated to cater to diverse palates.
+					</p>
+					<p>
+						We pride ourselves on offering a warm and welcoming ambiance, perfect for family dinners, date nights, or celebrations. At Restaurant, it's more than just food – it's an experience.
+					</p>
+					<a href="menu.html" class="btn btn-primary mt-3">Explore Our Menu</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="team">
+		<div class="container my-5">
+			<h2 class="titleText">Meet Our <span>T</span>eam</h2>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="card text-center">
+						<img src="assets/images/chef1.jpg" class="card-img-top" alt="Chef">
+						<div class="card-body">
+							<h5 class="card-title">John Doe</h5>
+							<p class="card-text">Head Chef</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card text-center">
+						<img src="assets/images/chef2.jpg" class="card-img-top" alt="Chef">
+						<div class="card-body">
+							<h5 class="card-title">Jane Smith</h5>
+							<p class="card-text">Pastry Chef</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card text-center">
+						<img src="assets/images/chef3.jpg" class="card-img-top" alt="Chef">
+						<div class="card-body">
+							<h5 class="card-title">Mark Brown</h5>
+							<p class="card-text">Sous Chef</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="copyrightText">
+			<p>Copyright 2024 <a href="#">Restaurant</a>. All Rights Reserved.</p>
+		</div>
+	</footer>
+
+	<script>
+		// Sticky Header
+		window.addEventListener('scroll', function () {
+			const header = document.querySelector('header');
+			header.classList.toggle("sticky", window.scrollY > 0);
+		});
+
+		// Toggle Menu
+		function toggleMenu() {
+			const menuToggle = document.querySelector('.menuToggle');
+			const navigation = document.querySelector('.navigation');
+			menuToggle.classList.toggle('active');
+			navigation.classList.toggle('active');
+		}
+	</script>
+
+	<!-- Bootstrap JS -->
+	
+</body>
+</html>
